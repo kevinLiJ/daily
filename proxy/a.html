@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input id="inp-name" onkeyup="inpChange(event)" />
+  <input id="inp-age" onkeyup="inpChange(event)" />
+  <input id="inp-workAge" onkeyup="inpChange(event)" />
+  <input id="inp-company" onkeyup="inpChange(event)" />
+  <p id="p-name"></p>
+  <p id="p-age"></p>
+  <p id="p-workAge"></p>
+  <p id="p-company"></p>
+  <script>
+
+
+    var info = {
+      name: 'liyang',
+      age: 15,
+      job:{
+        
+      workAge: 3,
+      company: 'zhilian'
+      }
+    }
+    for (const key in info) {
+      if (info.hasOwnProperty(key)) {
+        const value = info[key];
+        render(key, value)
+      }
+    }
+    let info1 = new Proxy(info, {
+      set(target, key, value, reciver) {
+        document.getElementById('p-' + key).innerText = value
+        Reflect.set(target, key, value, reciver)
+      }
+    })
+
+    function inpChange(e) {
+      const key =e.target.id.replace('inp-', '')
+      info1[key] = e.target.value
+    }
+
+    function render(key, value) {
+      document.getElementById('inp-' + key).value = value
+      document.getElementById('p-' + key).innerText = value
+    }
+  </script>
+</body>
+
+</html>

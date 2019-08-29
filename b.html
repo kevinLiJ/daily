@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .son1 {
+      width: 300px;
+      height: 300px;
+    }
+
+    div {
+      padding: 20px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="son1">
+    <div class="son2">
+      <div class="son3"></div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+    crossorigin="anonymous"></script>
+  <script>
+
+    /***
+     * mouseover mouseenter区别
+     *
+     * 1. mouseover 会冒泡 | mouseenter不会冒泡
+     * 2. 鼠标从子元素移出到父元素时，会再次触发父元素的mouseover | 不会触发
+     *
+     */
+
+    // $('.son1').mouseenter(function () {
+    //   console.log(' son1 mouseenter');
+
+    // })
+    // $('.son2').mouseenter(function () {
+    //   console.log(' son2 mouseenter');
+
+    // })
+    // $('.son3').mouseenter(function () {
+    //   console.log(' son3 mouseenter');
+
+    // })
+
+    $('.son1').mouseover(function () {
+      console.log(' son1 mouseover');
+
+    })
+    $('.son2').mouseover(function () {
+      console.log(' son2 mouseover');
+
+    })
+    $('.son3').mouseover(function () {
+      console.log(' son3 mouseover');
+
+    })
+
+  </script>
+</body>
+
+</html>

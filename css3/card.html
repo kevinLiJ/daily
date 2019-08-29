@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .cards {
+      display: inline-block;
+      margin: 200px;
+      position: relative;
+      width: 200px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .card {
+      width: 200px;
+      height: 300px;
+      background-color: red;
+      transform-origin: right bottom;
+    }
+
+    .moveIn {
+      animation: moveIn .2s ease-in forwards;
+    }
+
+    .moveOut {
+      animation: moveOut .2s ease-in forwards;
+    }
+
+    @keyframes moveOut {
+      from {
+        transform: rotateZ(0deg)
+      }
+
+      to {
+        transform: rotateZ(90deg);
+        display: none;
+      }
+    }
+
+    @keyframes moveIn {
+      from {
+        transform: rotateZ(90deg);
+        display: block;
+      }
+
+      to {
+        transform: rotateZ(0deg)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cards">
+    <div class="card" id="card">
+    </div>
+  </div>
+  <button onclick="moveIn()">moveIn</button>
+  <button onclick="moveOut()">moveOut</button>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>
+    function moveOut() {
+      $('#card').removeClass('moveIn').addClass('moveOut')
+    }
+
+    function moveIn() {
+      $('#card').removeClass('moveOut').addClass('moveIn')
+    }
+  </script>
+</body>
+
+</html>
